@@ -60,6 +60,15 @@ def api_porto_pression():
 
 
 
+@app.route("/atelier")
+def monatelier():
+    return render_template("atelier.html")
+
+
+
+
+
+
 # Ne rien mettre après ce commentaire
     
 if __name__ == "__main__":
