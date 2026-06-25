@@ -40,7 +40,23 @@ def mongraphique():
 def monhistogramme():
     return render_template("histogramme.html")
 
+@app.get("/portoPression")
+def api_porto_pression():
 
+    url = "https://api.open-meteo.com/v1/forecast?latitude=41.15&longitude=-8.61&hourly=pressure_msl"
+    response = requests.get(url)
+    data = response.json()
+
+    times = data.get("hourly", {}).get("time", [])
+    pressures = data.get("hourly", {}).get("pressure_msl", [])
+
+    n = min(len(times), len(pressures))
+    result = [
+        {"datetime": times[i], "pressure_hpa": pressures[i]}
+        for i in range(n)
+    ]
+
+    return jsonify(result)
 
 
 
