@@ -17,9 +17,39 @@
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       background: linear-gradient(135deg, #1f2937, #334155 60%, #0f172a);
       padding: 24px;
+      position: relative;
+      overflow: hidden;
     }
 
+    .particle {
+      position: fixed;
+      bottom: -20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.55);
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+      animation: rise linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.5; }
+      100% { transform: translateY(-110vh) translateX(20px); opacity: 0; }
+    }
+
+    .p1 { left: 8%;  width: 6px;  height: 6px;  animation-duration: 14s; animation-delay: 0s; }
+    .p2 { left: 18%; width: 4px;  height: 4px;  animation-duration: 18s; animation-delay: -4s; }
+    .p3 { left: 30%; width: 8px;  height: 8px;  animation-duration: 12s; animation-delay: -8s; }
+    .p4 { left: 45%; width: 5px;  height: 5px;  animation-duration: 20s; animation-delay: -2s; }
+    .p5 { left: 60%; width: 7px;  height: 7px;  animation-duration: 16s; animation-delay: -10s; }
+    .p6 { left: 72%; width: 4px;  height: 4px;  animation-duration: 22s; animation-delay: -6s; }
+    .p7 { left: 84%; width: 6px;  height: 6px;  animation-duration: 15s; animation-delay: -12s; }
+    .p8 { left: 93%; width: 5px;  height: 5px;  animation-duration: 19s; animation-delay: -3s; }
+
     .card {
+      position: relative;
+      z-index: 1;
       background: #ffffff;
       border-radius: 16px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
@@ -112,6 +142,15 @@
 </head>
 
 <body>
+  <div class="particle p1"></div>
+  <div class="particle p2"></div>
+  <div class="particle p3"></div>
+  <div class="particle p4"></div>
+  <div class="particle p5"></div>
+  <div class="particle p6"></div>
+  <div class="particle p7"></div>
+  <div class="particle p8"></div>
+
   <div class="card">
     <h1>Contactez-moi</h1>
     <p class="subtitle">Une question sur l'atelier métriques ? Écrivez-moi un message ci-dessous.</p>
